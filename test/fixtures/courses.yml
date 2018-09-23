@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  credits: MyString
+  subjects: one
+  name: MyString
+  prerequisites: MyString
+  term: MyString
+  id: MyString
+  type: 
+
+two:
+  credits: MyString
+  subjects: two
+  name: MyString
+  prerequisites: MyString
+  term: MyString
+  id: MyString
+  type: 
