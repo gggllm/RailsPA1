@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nane:</strong>
+  <%= @subject.nane %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @subject.abbreviation %>
+</p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @subject.id %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @subject.term %>
+</p>
+
+<%= link_to 'Edit', edit_subject_path(@subject) %> |
+<%= link_to 'Back', subjects_path %>
