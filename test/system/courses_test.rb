@@ -14,12 +14,10 @@ class CoursesTest < ApplicationSystemTestCase
     visit courses_url
     click_on "New Course"
 
+    fill_in "Code", with: @course.code
     fill_in "Credits", with: @course.credits
-    fill_in "Id", with: @course.id
+    fill_in "Description", with: @course.description
     fill_in "Name", with: @course.name
-    fill_in "Prerequisites", with: @course.prerequisites
-    fill_in "Term", with: @course.term
-    fill_in "Type", with: @course.type
     click_on "Create Course"
 
     assert_text "Course was successfully created"
@@ -30,12 +28,10 @@ class CoursesTest < ApplicationSystemTestCase
     visit courses_url
     click_on "Edit", match: :first
 
+    fill_in "Code", with: @course.code
     fill_in "Credits", with: @course.credits
-    fill_in "Id", with: @course.id
+    fill_in "Description", with: @course.description
     fill_in "Name", with: @course.name
-    fill_in "Prerequisites", with: @course.prerequisites
-    fill_in "Term", with: @course.term
-    fill_in "Type", with: @course.type
     click_on "Update Course"
 
     assert_text "Course was successfully updated"

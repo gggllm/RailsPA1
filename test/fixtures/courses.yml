@@ -1,19 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  credits: MyString
-  subjects: one
+  credits: 1
   name: MyString
-  prerequisites: MyString
-  term: MyString
-  id: MyString
-  type: 
+  code: MyString
+  description: MyString
 
 two:
-  credits: MyString
-  subjects: two
+  credits: 1
   name: MyString
-  prerequisites: MyString
-  term: MyString
-  id: MyString
-  type: 
+  code: MyString
+  description: MyString

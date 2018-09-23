@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  abbrevation: MyString
-  td: MyString
+  abbreviation: MyString
+  id: MyString
   type: 
   term: MyString
 
 two:
   name: MyString
-  abbrevation: MyString
-  td: MyString
+  abbreviation: MyString
+  id: MyString
   type: 
   term: MyString

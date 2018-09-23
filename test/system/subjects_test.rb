@@ -16,8 +16,9 @@ class SubjectsTest < ApplicationSystemTestCase
 
     fill_in "Abbreviation", with: @subject.abbreviation
     fill_in "Id", with: @subject.id
-    fill_in "Nane", with: @subject.nane
+    fill_in "Name", with: @subject.name
     fill_in "Term", with: @subject.term
+    fill_in "Type", with: @subject.type
     click_on "Create Subject"
 
     assert_text "Subject was successfully created"
@@ -30,8 +31,9 @@ class SubjectsTest < ApplicationSystemTestCase
 
     fill_in "Abbreviation", with: @subject.abbreviation
     fill_in "Id", with: @subject.id
-    fill_in "Nane", with: @subject.nane
+    fill_in "Name", with: @subject.name
     fill_in "Term", with: @subject.term
+    fill_in "Type", with: @subject.type
     click_on "Update Subject"
 
     assert_text "Subject was successfully updated"

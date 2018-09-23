@@ -8,3 +8,9 @@
 require 'activerecord-import'
 require 'json'
 
+courses=JSON.parse(open('db/jsonData/course.json').read).map {|x|x.except('independent_study','subjects','requirements')}
+Course.import courses
+instructors=JSON.parse(open('db/jsonData/instructor.json').read)
+Instructor.import instructors
+subjects=JSON.parse(open('db/jsonData/subject.json').read).map {|x|x.except('segments')}
+Subject.import subjects
