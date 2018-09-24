@@ -14,3 +14,5 @@ instructors=JSON.parse(open('db/jsonData/instructor.json').read)
 Instructor.import instructors
 subjects=JSON.parse(open('db/jsonData/subject.json').read).map {|x|x.except('segments')}
 Subject.import subjects
+
+
