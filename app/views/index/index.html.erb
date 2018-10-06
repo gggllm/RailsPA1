@@ -1,6 +1,4 @@
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
+
 <body>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -46,7 +44,6 @@
       <th>Name</th>
       <th>Abbreviation</th>
       <th>Id</th>
-      <th>Type</th>
       <th>Term</th>
       <th colspan="3"></th>
     </tr>
@@ -58,7 +55,6 @@
         <td><%= subject.name %></td>
         <td><%= subject.abbreviation %></td>
         <td><%= subject.id %></td>
-        <td><%= subject.type %></td>
         <td><%= subject.term %></td>
         <td><%= link_to 'Show', subject %></td>
         <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
@@ -71,10 +67,8 @@
     <thead>
     <tr>
       <th>First</th>
-      <th>Middle</th>
       <th>Last</th>
       <th>Id</th>
-      <th>Type</th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -83,10 +77,8 @@
     <% @instructors.each do |instructor| %>
       <tr>
         <td><%= instructor.first %></td>
-        <td><%= instructor.middle %></td>
         <td><%= instructor.last %></td>
         <td><%= instructor.id %></td>
-        <td><%= instructor.type %></td>
         <td><%= link_to 'Show', instructor %></td>
         <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
         <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -98,6 +90,3 @@
 
 
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

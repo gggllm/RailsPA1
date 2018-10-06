@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Github repo:
+https://github.com/gggllm/RailsPA1.git
 
-Things you may want to cover:
+It is not private because for a free account cannot
+create a private git repository
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Heroku url:
+https://fathomless-plains-19793.herokuapp.com/
