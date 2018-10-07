@@ -6,7 +6,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Credits</th>
       <th>Name</th>
       <th>Code</th>
       <th>Description</th>
@@ -17,13 +16,12 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.credits %></td>
         <td><%= course.name %></td>
         <td><%= course.code %></td>
         <td><%= course.description %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', course , class:"btn btn-outline-primary"%></td>
+        <td><%= link_to 'Edit', edit_course_path(course) , class:"btn btn-outline-primary"%></td>
+        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-outline-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'New Course', new_course_path, class:"btn btn-outline-primary" %>
