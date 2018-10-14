@@ -1,0 +1,10 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">PA rails 2</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <%= link_to 'index',:index_path,class:"p-2 text-dark" %> |
+    <%= link_to 'courses','/courses',class:"p-2 text-dark" %> |
+    <%= link_to 'instructors','/instructors',class:"p-2 text-dark" %> |
+    <%= link_to 'subjects','/subjects',class:"p-2 text-dark" %> |
+  </nav>
+  <%= link_to 'Log Out', :logout_path, method:"post" ,class:"btn btn-outline-primary" %>
+</div>
