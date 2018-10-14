@@ -10,7 +10,11 @@
   </head>
 
   <body>
+  <% if session[:id] || request.fullpath==login_path %>
     <%= yield %>
+  <% else %>
+    <script charset="utf-8" type="text/javascript">location.href='<%= login_path %>'</script>
+  <% end %>
   </body>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

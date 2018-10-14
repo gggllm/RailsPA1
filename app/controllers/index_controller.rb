@@ -4,4 +4,7 @@ class IndexController < ApplicationController
     @subjects = Subject.all
     @courses = Course.all
   end
+  def login
+
+  end
 end

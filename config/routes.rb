@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :users
   resources :subjects
   resources :courses
   resources :instructors
   root 'index#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/login', to: 'index#login'
+  post '/login' ,to: 'user#login', as: :login_path
+  get '/signup', to: 'user#signup' ,as: :signup_path
 end
