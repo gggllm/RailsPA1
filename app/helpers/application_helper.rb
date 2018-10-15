@@ -6,6 +6,6 @@ module ApplicationHelper
   end
 
   def is_login session
-    return session[:userid]
+    return session[:user_id]
   end
 end

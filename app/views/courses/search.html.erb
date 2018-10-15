@@ -1,0 +1,13 @@
+<%= form_tag "/search_courses_list", method: "get" do %>
+  <div class="form-group">
+    <%= label_tag(:course, "Course Name") %>
+    <%= text_field(:course, :name, placeholder: "Enter Course Name", class: "form-control") %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:subject, "Subject") %>
+    <%= select_tag(:subject, options_from_collection_for_select(@subjects,:id,:name), prompt:"All Subjects",
+        placeholder: "Password", class: "form-control custom-select")
+    %>
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>

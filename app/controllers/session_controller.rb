@@ -6,7 +6,7 @@ class SessionController < ApplicationController
   def login
     user = User.where({email: params[:user][:email]}).first
     if user && user.authenticate(params[:user][:password])
-      session[:userid] = user[:id]
+      session[:user_id] = user[:id]
       redirect_to "/"
     else
       flash.now[:danger] = 'Invalid email/password combination'

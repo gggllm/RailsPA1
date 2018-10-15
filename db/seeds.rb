@@ -8,8 +8,18 @@
 require 'activerecord-import'
 require 'json'
 
-courses=JSON.parse(open('db/jsonData/course.json').read).map {|x|x.except('independent_study','subjects','requirements')}
+courses_json=JSON.parse(open('db/jsonData/course.json').read)
+segments_json=courses_json.flat_map {|x|x["subjects"].map{|segment|{"course_code"=>x["code"],"subject_id"=>segment["id"],"segment_id"=>segment["segment"]}}}
+
+segments_json_by_course_code=segments_json.group_by {|x|x["course_code"]}
+
+courses=courses_json.map {|x|x.except('independent_study','subjects','requirements')}
 Course.import courses
+
+Course.all.each{|course|segments_json_by_course_code[course.code].each {|segment| segment["course_id"]=course.id}}
+
+Segment.import(segments_json.take_while{|x|x["course_id"]}.map{|x|x.except("course_code")})
+
 instructors=JSON.parse(open('db/jsonData/instructor.json').read)
 Instructor.import instructors
 subjects=JSON.parse(open('db/jsonData/subject.json').read).map {|x|x.except('segments')}

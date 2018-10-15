@@ -11,10 +11,27 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  def user_courses
+    @users=User.all
+  end
+  def enroll
+    if(Enrollment.where(course_id:params[:course_id],user_id:session[:user_id]).size>=1)
+      flash[:danger] = "You have alread enrolled in this course!"
+      redirect_to "/"
+      return
+    end
+    flash[:success] = "You have successfully enrolled in this course!"
+    Enrollment.new(course_id: params[:course_id],user_id:session[:user_id]).save
+    redirect_to "/"
+  end
 
+  def unenroll
+    if(Enrollment.where(course_id:params[:course_id],user_id:session[:user_id]).first.destroy)
+      flash[:success] = "You have successfully delete in this course!"
+      redirect_to "/"
+    end
+  end
 
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all
   end
