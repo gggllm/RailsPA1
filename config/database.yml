@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: RailsPA1_production
-  username: RailsPA1
-  password: <%= ENV['RAILSPA1_DATABASE_PASSWORD'] %>
+  username: morris
+  password: root
