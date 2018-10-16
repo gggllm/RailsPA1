@@ -7,5 +7,6 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
 
   has_secure_password
-  has_and_belongs_to_many :courses,join_table: :enrollments
+  has_many :enrollments
+  has_many :courses,through: :enrollments
 end
