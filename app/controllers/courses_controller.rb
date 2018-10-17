@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def search_by_name_and_subject
-    @courses = Course.joins(:segments).where('name like :str', str: "%#{params["course"]["name"]}%")
+    @courses = Course.joins(:segments).where('lower(name) like :str', str: "%#{params["course"]["name"].downcase}%")
     if (params["subject"]!="")
       @courses = @courses.where({segments: {subject_id: params["subject"]}})
     end
