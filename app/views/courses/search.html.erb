@@ -5,25 +5,29 @@
   </div>
   <div class="form-group">
     <%= label_tag(:subject, "Subject") %>
-    <%= select_tag(:subject, options_from_collection_for_select(@subjects, :id, :name), prompt: "All Subjects",
+    <%= select_tag(:subject, options_from_collection_for_select(@subjects, :id, :name, '1161-1400'), prompt: "All Subjects",
                    placeholder: "Password", class: "form-control custom-select")
     %>
   </div>
 <% end %>
 <div id="course_search_result"></div>
 <script>
-  var index=0;// count the number of ajax
+    var index = 0;// count the number of ajax
+    $('#course_name').val(localStorage.getItem('course_name') || '')
+    $('#subject').val(localStorage.getItem('subject') || '1161-1400')
     $('#course_name, #subject').on('input', () => {
-        var idx=++index;
+        var idx = ++index;
+        localStorage.setItem('course_name', $('#course_name').val())
+        localStorage.setItem('subject', $('#subject').val())
         $.ajax({
             url: '/search_courses_list',
             method: 'get',
             data: {
                 course: {name: $('#course_name').val()},
-                subject:$('#subject').val()
+                subject: $('#subject').val()
             },
             success: function (data) {
-                if(idx<index) return// make sure only the latest ajax can render
+                if (idx < index) return// make sure only the latest ajax can render
                 $('#course_search_result').html(data)
             }
         })
