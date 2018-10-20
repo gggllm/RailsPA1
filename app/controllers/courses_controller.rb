@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
     if (params["subject"]!="")
       @courses = @courses.where({segments: {subject_id: params["subject"]}})
     end
-    render :search_result, courses: @courses
+    render :search_result, {layout: false,courses: @courses}
   end
 
   def search_result

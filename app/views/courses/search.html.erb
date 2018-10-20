@@ -5,9 +5,25 @@
   </div>
   <div class="form-group">
     <%= label_tag(:subject, "Subject") %>
-    <%= select_tag(:subject, options_from_collection_for_select(@subjects,:id,:name), prompt:"All Subjects",
-        placeholder: "Password", class: "form-control custom-select")
+    <%= select_tag(:subject, options_from_collection_for_select(@subjects, :id, :name), prompt: "All Subjects",
+                   placeholder: "Password", class: "form-control custom-select")
     %>
   </div>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+<div id="course_search_result"></div>
+<script>
+    $('#course_name, #subject').on('input', () => {
+        $.ajax({
+            url: '/search_courses_list',
+            method: 'get',
+            data: {
+                course: {name: $('#course_name').val()},
+                subject:$('#subject').val()
+            },
+            success: function (data) {
+                $('#course_search_result').html(data)
+            }
+        })
+    }).trigger('input')
+
+</script>
