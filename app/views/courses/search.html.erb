@@ -12,7 +12,9 @@
 <% end %>
 <div id="course_search_result"></div>
 <script>
+  var index=0;// count the number of ajax
     $('#course_name, #subject').on('input', () => {
+        var idx=++index;
         $.ajax({
             url: '/search_courses_list',
             method: 'get',
@@ -21,6 +23,7 @@
                 subject:$('#subject').val()
             },
             success: function (data) {
+                if(idx<index) return// make sure only the latest ajax can render
                 $('#course_search_result').html(data)
             }
         })
