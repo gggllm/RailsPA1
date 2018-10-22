@@ -5,7 +5,7 @@
   </div>
   <div class="form-group">
     <%= label_tag(:subject, "Subject") %>
-    <%= select_tag(:subject, options_from_collection_for_select(@subjects, :id, :name, '1161-1400'), prompt: "All Subjects",
+    <%= select_tag(:subject, options_from_collection_for_select(@subjects, :id, :name), prompt: "All Subjects",
                    placeholder: "Password", class: "form-control custom-select")
     %>
   </div>
@@ -14,7 +14,7 @@
 <script>
     var index = 0;// count the number of ajax
     $('#course_name').val(localStorage.getItem('course_name') || '')
-    $('#subject').val(localStorage.getItem('subject') || '1161-1400')
+    $('#subject').val(localStorage.getItem('subject') || '<%= @subjects.first.id %>')
     $('#course_name, #subject').on('input', () => {
         var idx = ++index;
         localStorage.setItem('course_name', $('#course_name').val())

@@ -9,4 +9,5 @@
     <%= link_to 'subjects','/subjects',class:"p-2 text-dark" %> |
   </nav>
   <%= link_to 'Log Out', :logout_path, method:"post" ,class:"btn btn-outline-primary" %>
+  <%= image_tag @current_user.gravatar_url ,size:30 ,class:"rounded-circle", style: "transform:translateX(10px)"%>
 </div>
