@@ -13,12 +13,16 @@
 <div id="course_search_result"></div>
 <script>
     var index = 0;// count the number of ajax
+    // read the data from localStorage
     $('#course_name').val(localStorage.getItem('course_name') || '')
     $('#subject').val(localStorage.getItem('subject') || '<%= @subjects.first.id %>')
+
     $('#course_name, #subject').on('input', () => {
         var idx = ++index;
+        // save the data to localStorage
         localStorage.setItem('course_name', $('#course_name').val())
         localStorage.setItem('subject', $('#subject').val())
+
         $.ajax({
             url: '/search_courses_list',
             method: 'get',

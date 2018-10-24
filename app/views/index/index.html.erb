@@ -20,7 +20,7 @@
       <td><%= course.code %></td>
       <td><%= course.description %></td>
       <td><%= course.subjects.map {|x| x.name}.join "," %></td>
-      <td><%= link_to 'Delete', "/unenroll/#{course.id}", method: "post", class: "btn btn-outline-primary" %></td>
+      <td><%= link_to 'Drop', "/unenroll/#{course.id}", method: "post", class: "btn btn-danger" %></td>
     </tr>
   <% end %>
   </tbody>

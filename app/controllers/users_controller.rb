@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "create account success"
       redirect_to :login_path
-    else
+    elseenroll
       puts @user
       flash.now[:danger] = "create account failed"
       render 'new'
@@ -20,18 +20,18 @@ class UsersController < ApplicationController
   def enroll
     if (Enrollment.where(course_id: params[:course_id], user_id: session[:user_id]).size >= 1)
       flash[:danger] = "You have alread enrolled in this course!"
-      redirect_to "/"
+      redirect_back(fallback_location: '/')
     else
       flash[:success] = "You have successfully enrolled in this course!"
       Enrollment.new(course_id: params[:course_id], user_id: session[:user_id]).save
-      redirect_to "/"
+      redirect_back(fallback_location: '/')
     end
   end
 
   def unenroll
     if (Enrollment.where(course_id: params[:course_id], user_id: session[:user_id]).first.destroy)
       flash[:success] = "You have successfully delete in this course!"
-      redirect_to "/"
+      redirect_back(fallback_location: '/')
     end
   end
 

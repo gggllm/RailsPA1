@@ -20,7 +20,9 @@
       <td><%= course.subjects.map {|x| x.name}.join "," %></td>
       <td>
         <% if course.users.where(id: session["user_id"]).size < 1 %>
-          <%= link_to 'Enroll', "/enroll/#{course.id}", method: "post", class: "btn btn-outline-primary" %>
+          <%= link_to 'Enroll', "/enroll/#{course.id}", method: "post", class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to 'Drop', "/unenroll/#{course.id}", method: "post", class: "btn btn-danger" %>
         <% end %>
       </td>
     </tr>
