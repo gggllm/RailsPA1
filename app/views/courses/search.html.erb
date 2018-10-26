@@ -16,8 +16,8 @@
     // read the data from localStorage
     $('#course_name').val(localStorage.getItem('course_name') || '')
     $('#subject').val(localStorage.getItem('subject') || '<%= @subjects.first.id %>')
-
-    $('#course_name, #subject').on('input', () => {
+    // use lodash to generate throttled function
+    var throttledSearch = _.throttle(() => {
         var idx = ++index;
         // save the data to localStorage
         localStorage.setItem('course_name', $('#course_name').val())
@@ -35,6 +35,8 @@
                 $('#course_search_result').html(data)
             }
         })
-    }).trigger('input')
+    }, 1000)
+
+    $('#course_name, #subject').on('input', throttledSearch).trigger('input')
 
 </script>
